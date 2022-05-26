@@ -14,8 +14,10 @@ public class PersonBuilder {
         return this;
     }
     public PersonBuilder setAge(int age) {
-        this.age = age;
-        return this;
+        if(age > 0) {
+            this.age = age;
+            return this;
+        } throw new IllegalStateException("Некорректный возраст!");
     }
     public PersonBuilder setAddress(String address) {
         this.address = address;
@@ -23,7 +25,9 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, surname, age);
+        if(name != null && surname != null && age !=0) {
+            return new Person(name, surname, age);
+        } throw new IllegalStateException("Не хватает данных!");
     }
 
 }
