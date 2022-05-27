@@ -9,25 +9,30 @@ public class PersonBuilder {
         this.name = name;
         return this;
     }
+
     public PersonBuilder setSurname(String surname) {
         this.surname = surname;
         return this;
     }
+
     public PersonBuilder setAge(int age) {
-        if(age > 0) {
+        if (age > 0) {
             this.age = age;
             return this;
-        } throw new IllegalStateException("Некорректный возраст!");
+        }
+        throw new IllegalStateException("Некорректный возраст!");
     }
+
     public PersonBuilder setAddress(String address) {
         this.address = address;
         return this;
     }
 
     public Person build() {
-        if(name != null && surname != null && age !=0) {
+        if (name != null && surname != null && age != 0) {
             return new Person(name, surname, age);
-        } throw new IllegalStateException("Не хватает данных!");
+        }
+        throw new IllegalStateException("Не хватает данных!");
     }
 
 }
